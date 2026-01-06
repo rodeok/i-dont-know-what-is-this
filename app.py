@@ -1,8 +1,12 @@
 import random
 import time
+from datetime import datetime
 from rich.console import Console
 from rich.text import Text
 from rich.live import Live
+
+AMOUNT = 84_000_000.06         
+YEAR = datetime.now().year      
 
 console = Console()
 LINE_WIDTH = 120
@@ -62,7 +66,7 @@ def run():
 
     # CONNECTED
     green_banner("CONNECTED")
-    console.print("[white]2026[/white]\n")
+    console.print(f"[white]{YEAR}[/white]\n")
 
     trn = random_trn()
     route = f"external_crypto_server/download/usdt/convert/{trn}"
@@ -70,7 +74,9 @@ def run():
     console.print(route)
     console.print(f"TRN               : {trn}")
     console.print("Client account name : STE TRADIMI S.A.R.L")
-    console.print("Amount              : [white]$ 84,000,000.06 #DOLLARS#[/white]\n")
+
+    formatted_amount = f"${AMOUNT:,.2f} #DOLLARS#"
+    console.print(f"Amount              : [white]{formatted_amount}[/white]\n")
 
     divider()
     animated_progress("DOWNLOADING")
@@ -84,7 +90,7 @@ def run():
     divider()
 
     console.print("\n[bold black on green] CONVERT COMPLETED!!!!! [/]\n")
-    console.print("[white]2026[/white]\n")
+    console.print(f"[white]{YEAR}[/white]\n")
 
     ip = "203.52.115.115"
 
@@ -97,7 +103,7 @@ def run():
     )
 
     console.print(f"[white]CRYPTO IP LINK {ip}[/white]")
-    console.print("[white]2026[/white]")
+    console.print(f"[white]{YEAR}[/white]")
 
 # ---------------- ENTRY ----------------
 
